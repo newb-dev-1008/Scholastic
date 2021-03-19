@@ -5,8 +5,12 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 from sklearn.decomposition import PCA
 
 
+def cosine_similarity(A, B):
+    return np.dot(A, B)/(np.linalg.norm(A)*np.linalg.norm(B))
+
+
 def phraseTransform(train):
-    phrase_model = Phrases(train, min_count=3, threshold=1,
+    phrase_model = Phrases(train, min_count=3, threshold=0.5,
                            connector_words=ENGLISH_CONNECTOR_WORDS)
     converted_sentences = [phrase_model(sent) for sent in train]
     return converted_sentences
@@ -101,3 +105,10 @@ def getSentenceEmbedding(document, model, mode="average"):
             sentence_vecs.append(np.subtract(vs, sub))
 
         return sentence_vecs
+
+
+def getSimilarity(model, document1, document2):
+    vector1 = getSentenceEmbedding(document1, model)
+    vector2 = getSentenceEmbedding(document2, model)
+    similarity = cosine_similarity(vector1, vector2)
+    return similarity
