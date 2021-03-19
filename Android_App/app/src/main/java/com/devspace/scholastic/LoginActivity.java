@@ -12,12 +12,18 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -62,7 +68,17 @@ public class LoginActivity extends AppCompatActivity {
                 String EmailID = emailET.getText().toString().trim();
                 UIDEmailID = EmailID;
                 if (isEmailValid(UIDEmailID)) {
-
+                    firebaseAuth.fetchSignInMethodsForEmail(UIDEmailID).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                            if (task.isSuccessful()) {
+                                List<String> signInMethods = task.getResult().getSignInMethods();
+                                if (signInMethods.size() != 0) {
+                                    emailET
+                                }
+                            }
+                        }
+                    })
                 }
             }
         });
