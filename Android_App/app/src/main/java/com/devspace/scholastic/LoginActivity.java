@@ -139,6 +139,20 @@ public class LoginActivity extends AppCompatActivity {
 
     private void signUp() {
         // Finish this
+        String password = confPassET.getText().toString().trim();
+        firebaseAuth.createUserWithEmailAndPassword(UIDEmailID, password)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                        updateUI(currentUser);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void updateUI(FirebaseUser user) {
