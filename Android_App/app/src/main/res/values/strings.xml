@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Scholastic</string>
     <string-array name="studentYear">
+        <item>Which grade do you belong to?</item>
         <item>LKG</item>
         <item>UKG</item>
         <item>1st Grade</item>
