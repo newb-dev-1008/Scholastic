@@ -48,7 +48,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:visibility="gone"
-            android:hint="Enter your E-mail ID"
+            android:hint="Enter your password"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/signupEmailEditText"
