@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "63208879257",
+    "project_id": "scholastic-408ca",
+    "storage_bucket": "scholastic-408ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63208879257:android:4064b15bd07d443d56f408",
+        "android_client_info": {
+          "package_name": "com.devspace.scholastic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63208879257-tqvj7tfp32kmm8074mtl5p8k8ruhnvlu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeKnTC_BRdKJEP0yeDXC9Hd4tru6vfW6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63208879257-tqvj7tfp32kmm8074mtl5p8k8ruhnvlu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

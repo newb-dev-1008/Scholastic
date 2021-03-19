@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     private RadioGroup userType;
     private RadioButton userTypeSelected;
     private Button enterMail, signUpBtn;
-    private TextView dateOfBirth,studentYearTV;
+    private TextView dateOfBirth, studentYearTV;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db;
     private Spinner studentYear;
@@ -39,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         confPassET = findViewById(R.id.signupConfPasswordEditText);
         phoneET = findViewById(R.id.phoneNumberEditText);
         userType = findViewById(R.id.userTypeRadioGroup);
-        userTypeSelected = findViewById(R.id.userType);
         enterMail = findViewById(R.id.signupEnterEmailButton);
         signUpBtn = findViewById(R.id.signupButton);
         dateOfBirth = findViewById(R.id.dateOfBirth);
@@ -48,10 +47,5 @@ public class LoginActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
     }
 }
