@@ -12,6 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailET, nameET, passwordET, confPassET, phoneET;
@@ -19,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     private RadioButton userTypeSelected;
     private Button enterMail, signUpBtn;
     private TextView dateOfBirth,studentYearTV;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore db;
     private Spinner studentYear;
     private DatePickerDialog.OnDateSetListener dateSetListener; // Needs to be completed
 
@@ -40,5 +45,13 @@ public class LoginActivity extends AppCompatActivity {
         dateOfBirth = findViewById(R.id.dateOfBirth);
         studentYearTV = findViewById(R.id.studentSemTV);
         studentYear = findViewById(R.id.studentYearSpinner);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 }
