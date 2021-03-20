@@ -24,7 +24,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.Scholastic" >
+        android:theme="@style/AppTheme" >
         <activity android:name="com.devspace.scholastic.SplashScreenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +34,7 @@
         </activity>
         <activity android:name="com.devspace.scholastic.LoginActivity" />
         <activity
-            android:name="com.devspace.scholastic.WelcomeScreenActivity"
+            android:name="com.devspace.scholastic.WelcomeNavbarActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.google.firebase.auth.internal.GenericIdpActivity"

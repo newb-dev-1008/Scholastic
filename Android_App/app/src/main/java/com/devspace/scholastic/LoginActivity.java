@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -56,7 +57,8 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
     private int enterFlag = 1, userFlag = 1;
     private Date DOBDate, currentDate;
     private Calendar selectedDate;
-    private DatePickerDialog.OnDateSetListener dateSetListener; // Needs to be completed
+    private DatePickerDialog.OnDateSetListener dateSetListener;
+    private ProgressBar progressBar;
 
     private String UIDEmailID, DOB;
 
@@ -79,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
         studentYear = findViewById(R.id.studentYearSpinner);
         signInPW = findViewById(R.id.signinPassword);
         userProfileTV = findViewById(R.id.userType);
+        progressBar = findViewById(R.id.emailVerifyProgress);
 
         currentDate = Calendar.getInstance().getTime();
         selectedDate = Calendar.getInstance();
@@ -90,41 +93,50 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             @Override
             public void onClick(View v) {
                 if (enterFlag == 1) {
+                    progressBar.setVisibility(View.VISIBLE);
                     enterFlag = 2;
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(enterMail.getWindowToken(), 0);
                     String EmailID = emailET.getText().toString().trim();
                     UIDEmailID = EmailID;
+                    Toast.makeText(LoginActivity.this, "This gets executed 1.", Toast.LENGTH_SHORT).show();
                     if (isEmailValid(UIDEmailID)) {
-                        firebaseAuth.fetchSignInMethodsForEmail(UIDEmailID).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                        firebaseAuth.fetchSignInMethodsForEmail(UIDEmailID).addOnSuccessListener(new OnSuccessListener<SignInMethodQueryResult>() {
                             @Override
-                            public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
-                                if (task.isSuccessful()) {
-                                    List<String> signInMethods = task.getResult().getSignInMethods();
-                                    if (signInMethods.size() != 0) {
-                                        signInPW.setVisibility(View.VISIBLE);
-                                        enterMail.setText("Sign In");
-                                    } else {
-                                        Toast.makeText(LoginActivity.this, "You haven't signed up yet. Sign up now!", Toast.LENGTH_SHORT).show();
-                                        emailET.setVisibility(View.GONE);
-                                        enterMail.setVisibility(View.GONE);
-                                        nameET.setVisibility(View.VISIBLE);
-                                        passwordET.setVisibility(View.VISIBLE);
-                                        confPassET.setVisibility(View.VISIBLE);
-                                        phoneET.setVisibility(View.VISIBLE);
-                                        dateOfBirth.setVisibility(View.VISIBLE);
-                                        dateOfBirthET.setVisibility(View.VISIBLE);
-                                        userProfileTV.setVisibility(View.VISIBLE);
-                                        userType.setVisibility(View.VISIBLE);
-                                        studentYearTV.setVisibility(View.VISIBLE);
-                                        studentYear.setVisibility(View.VISIBLE);
-                                        signUpBtn.setVisibility(View.VISIBLE);
-                                    }
+                            public void onSuccess(SignInMethodQueryResult signInMethodQueryResult) {
+                                List<String> signInMethods = signInMethodQueryResult.getSignInMethods();
+                                if (signInMethods.size() != 0) {
+                                    progressBar.setVisibility(View.GONE);
+                                    signInPW.setVisibility(View.VISIBLE);
+                                    enterMail.setText("Sign In");
+                                } else {
+                                    progressBar.setVisibility(View.GONE);
+                                    Toast.makeText(LoginActivity.this, "You haven't signed up yet. Sign up now!", Toast.LENGTH_SHORT).show();
+                                    emailET.setVisibility(View.GONE);
+                                    enterMail.setVisibility(View.GONE);
+                                    nameET.setVisibility(View.VISIBLE);
+                                    passwordET.setVisibility(View.VISIBLE);
+                                    confPassET.setVisibility(View.VISIBLE);
+                                    phoneET.setVisibility(View.VISIBLE);
+                                    dateOfBirth.setVisibility(View.VISIBLE);
+                                    dateOfBirthET.setVisibility(View.VISIBLE);
+                                    userProfileTV.setVisibility(View.VISIBLE);
+                                    userType.setVisibility(View.VISIBLE);
+                                    studentYearTV.setVisibility(View.VISIBLE);
+                                    studentYear.setVisibility(View.VISIBLE);
+                                    signUpBtn.setVisibility(View.VISIBLE);
                                 }
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                progressBar.setVisibility(View.GONE);
+                                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
                 } else {
+                    progressBar.setVisibility(View.GONE);
                     String password = signInPW.getText().toString().trim();
                     firebaseAuth.signInWithEmailAndPassword(UIDEmailID, password)
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -171,6 +183,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
                     public void onSuccess(AuthResult authResult) {
                         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
                         userFlag = 2;
+                        Toast.makeText(LoginActivity.this, "SignUp gets executed.", Toast.LENGTH_SHORT).show();
                         updateUI(currentUser, userFlag);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -199,6 +212,8 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             usersMap.put("userType", checkUserType());
             usersMap.put("grade", studentYear.getSelectedItem());
 
+            Toast.makeText(this, "updateUI 1 gets executed.", Toast.LENGTH_SHORT).show();
+
             db.collection("Users").document("User " + UIDEmailID).set(usersMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
@@ -214,6 +229,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
                     Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
+
         } else {
             Intent intent = new Intent(LoginActivity.this, WelcomeNavbarActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

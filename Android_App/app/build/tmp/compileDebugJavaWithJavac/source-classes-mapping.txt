@@ -4,25 +4,28 @@ com/devspace/scholastic/WelcomeNavbarActivity.java
  com.devspace.scholastic.WelcomeNavbarActivity
 com/devspace/scholastic/DatePickerFragment.java
  com.devspace.scholastic.DatePickerFragment
-com/devspace/scholastic/SplashScreenActivity.java
- com.devspace.scholastic.SplashScreenActivity
+com/devspace/scholastic/WelcomeScreenFragment.java
+ com.devspace.scholastic.WelcomeScreenFragment
 com/devspace/scholastic/TimeTableFragment.java
  com.devspace.scholastic.TimeTableFragment
+com/devspace/scholastic/BuildConfig.java
+ com.devspace.scholastic.BuildConfig
+com/devspace/scholastic/LabClassesFragment.java
+ com.devspace.scholastic.LabClassesFragment
+com/devspace/scholastic/SplashScreenActivity.java
+ com.devspace.scholastic.SplashScreenActivity
+ com.devspace.scholastic.SplashScreenActivity$1
+ com.devspace.scholastic.SplashScreenActivity$2
 com/devspace/scholastic/LoginActivity.java
  com.devspace.scholastic.LoginActivity
  com.devspace.scholastic.LoginActivity$1
  com.devspace.scholastic.LoginActivity$1$1
  com.devspace.scholastic.LoginActivity$1$2
  com.devspace.scholastic.LoginActivity$1$3
+ com.devspace.scholastic.LoginActivity$1$4
  com.devspace.scholastic.LoginActivity$2
  com.devspace.scholastic.LoginActivity$3
  com.devspace.scholastic.LoginActivity$4
  com.devspace.scholastic.LoginActivity$5
  com.devspace.scholastic.LoginActivity$6
  com.devspace.scholastic.LoginActivity$7
-com/devspace/scholastic/LabClassesFragment.java
- com.devspace.scholastic.LabClassesFragment
-com/devspace/scholastic/BuildConfig.java
- com.devspace.scholastic.BuildConfig
-com/devspace/scholastic/WelcomeScreenFragment.java
- com.devspace.scholastic.WelcomeScreenFragment
