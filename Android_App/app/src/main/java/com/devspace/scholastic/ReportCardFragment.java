@@ -48,9 +48,9 @@ public class ReportCardFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         progressBar = root.findViewById(R.id.rcProgress);
-        emailET = root.findViewById(R.id.);
-        passwordET = root.findViewById(R.id.);
-        resultsBtn = root.findViewById(R.id.);
+        emailET = root.findViewById(R.id.rcEmailEditText);
+        passwordET = root.findViewById(R.id.rcPassword);
+        resultsBtn = root.findViewById(R.id.rcSignIn);
 
         resultsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
