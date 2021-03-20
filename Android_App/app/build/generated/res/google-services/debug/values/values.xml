@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">63208879257-tqvj7tfp32kmm8074mtl5p8k8ruhnvlu.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">63208879257</string>
+    <string name="google_api_key" translatable="false">AIzaSyDeKnTC_BRdKJEP0yeDXC9Hd4tru6vfW6k</string>
+    <string name="google_app_id" translatable="false">1:63208879257:android:4064b15bd07d443d56f408</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDeKnTC_BRdKJEP0yeDXC9Hd4tru6vfW6k</string>
+    <string name="google_storage_bucket" translatable="false">scholastic-408ca.appspot.com</string>
+    <string name="project_id" translatable="false">scholastic-408ca</string>
+</resources>

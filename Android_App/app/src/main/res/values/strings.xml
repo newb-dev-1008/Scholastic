@@ -18,4 +18,6 @@
         <item>11th Grade</item>
         <item>12th Grade</item>
     </string-array>
+    <string name="navigation_drawer_open">NavBar is open.</string>
+    <string name="navigation_drawer_closed">NavBar is closed.</string>
 </resources>
