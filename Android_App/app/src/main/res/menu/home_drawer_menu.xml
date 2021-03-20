@@ -25,17 +25,14 @@
         <menu>
             <item
                 android:id="@+id/fee_payment"
-                android:icon="@drawable/fee"
                 android:title="Fee Payment" />
 
             <item
                 android:id="@+id/voatz"
-                android:icon="@drawable/Voatz"
                 android:title="Voatz" />
 
             <item
                 android:id="@+id/help"
-                android:icon="@drawable/help"
                 android:title="Help" />
         </menu>
     </item>
