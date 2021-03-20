@@ -1,5 +1,7 @@
 com/devspace/scholastic/ReportCardFragment.java
  com.devspace.scholastic.ReportCardFragment
+com/devspace/scholastic/WelcomeNavbarActivity.java
+ com.devspace.scholastic.WelcomeNavbarActivity
 com/devspace/scholastic/DatePickerFragment.java
  com.devspace.scholastic.DatePickerFragment
 com/devspace/scholastic/SplashScreenActivity.java
@@ -20,3 +22,7 @@ com/devspace/scholastic/LoginActivity.java
  com.devspace.scholastic.LoginActivity$7
 com/devspace/scholastic/LabClassesFragment.java
  com.devspace.scholastic.LabClassesFragment
+com/devspace/scholastic/BuildConfig.java
+ com.devspace.scholastic.BuildConfig
+com/devspace/scholastic/WelcomeScreenFragment.java
+ com.devspace.scholastic.WelcomeScreenFragment
