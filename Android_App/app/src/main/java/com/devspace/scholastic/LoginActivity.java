@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private ProgressBar progressBar;
 
-    private String UIDEmailID, DOB;
+    private String UIDEmailID, DOB, userTypeString;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -137,6 +137,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
                     }
                 } else {
                     progressBar.setVisibility(View.GONE);
+                    Toast.makeText(LoginActivity.this, "Signin entered.", Toast.LENGTH_SHORT).show();
                     String password = signInPW.getText().toString().trim();
                     firebaseAuth.signInWithEmailAndPassword(UIDEmailID, password)
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -217,6 +218,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             db.collection("Users").document("User " + UIDEmailID).set(usersMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
+                    Toast.makeText(LoginActivity.this, "updateUI Intent launching.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, WelcomeNavbarActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -231,10 +233,22 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             });
 
         } else {
+            db.collection("Users").document("User " + UIDEmailID).get()
+                    .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            userTypeString = documentSnapshot.get("userType").toString();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
             Intent intent = new Intent(LoginActivity.this, WelcomeNavbarActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            intent.putExtra("userType", checkUserType());
+            intent.putExtra("userType", userTypeString);
             startActivity(intent);
         }
     }
