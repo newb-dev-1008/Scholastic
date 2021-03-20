@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,11 +31,18 @@ import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity {
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
+
+public class LoginActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     private EditText emailET, nameET, passwordET, confPassET, phoneET, signInPW;
     private RadioGroup userType;
@@ -45,9 +54,11 @@ public class LoginActivity extends AppCompatActivity {
     private Spinner studentYear;
     private FirebaseAuth.AuthStateListener authStateListener;
     private int enterFlag = 1, userFlag = 1;
+    private Date DOBDate, currentDate;
+    private Calendar selectedDate;
     private DatePickerDialog.OnDateSetListener dateSetListener; // Needs to be completed
 
-    private String UIDEmailID;
+    private String UIDEmailID, DOB;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -135,6 +146,14 @@ public class LoginActivity extends AppCompatActivity {
                 signUp();
             }
         });
+
+        dateOfBirthET.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "DatePicker");
+            }
+        });
     }
 
     private boolean isEmailValid(CharSequence email) {
@@ -175,8 +194,8 @@ public class LoginActivity extends AppCompatActivity {
             usersMap.put("dateOfBirth", );
             usersMap.put("fullName", nameET.getText().toString().trim());
             usersMap.put("phoneNumber", phoneET.getText().toString().trim());
-            usersMap.put("userType", );
-            usersMap.put("grade", );
+            usersMap.put("userType", checkUserType());
+            usersMap.put("grade", studentYear.getSelectedItem());
 
             db.collection("Users").document("User " + UIDEmailID).set(usersMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
@@ -195,5 +214,36 @@ public class LoginActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+        Calendar c = Calendar.getInstance();
+        c.set(YEAR, year);
+        c.set(MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+        DOBDate = c.getTime();
+        selectedDate.set(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
+        DOB = DateFormat.getDateInstance(DateFormat.FULL).format(DOBDate);
+        dateOfBirthET.setText(DOB);
+    }
+
+    private int checkDOBValidity(Date cDate, Date bDate){
+        Calendar a = getCalendar(bDate);
+        Calendar b = getCalendar(cDate);
+        int diff = b.get(YEAR) - a.get(YEAR);
+        if (a.get(MONTH) > b.get(MONTH) ||
+                (a.get(MONTH) == b.get(MONTH) && a.get(Calendar.DAY_OF_MONTH) > b.get(Calendar.DAY_OF_MONTH))) {
+            diff--;
+        }
+
+        return diff;
+    }
+
+    public static Calendar getCalendar(Date date) {
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTime(date);
+        return cal;
     }
 }
