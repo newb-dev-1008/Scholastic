@@ -26,6 +26,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -81,6 +83,13 @@ public class PlagiarismCheckFragment extends Fragment {
             }
         });
 
+        simCheckBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkSimilarity();
+            }
+        });
+
         return root;
     }
 
@@ -94,6 +103,8 @@ public class PlagiarismCheckFragment extends Fragment {
                     File file = new File(filePath);
                     a = fileToString(file);
                     simProg.setVisibility(View.GONE);
+                    upload1TV.setVisibility(View.VISIBLE);
+                    upload1.setVisibility(View.GONE);
                 }
                 break;
             case PICKFILE_RESULT_CODE_2:
@@ -103,6 +114,9 @@ public class PlagiarismCheckFragment extends Fragment {
                     File file = new File(filePath);
                     b = fileToString(file);
                     simProg.setVisibility(View.GONE);
+                    upload2TV.setVisibility(View.VISIBLE);
+                    upload2.setVisibility(View.GONE);
+                    simCheckBtn.setVisibility(View.VISIBLE);
                 }
                 break;
         }
@@ -122,5 +136,17 @@ public class PlagiarismCheckFragment extends Fragment {
         }
 
         return str.toString();
+    }
+
+    private void checkSimilarity() {
+        Map<String, String> data = new HashMap<>();
+        data.put("document1", a);
+        data.put("document2", b);
+
+        // String response = requests.post("https://scholastic-bcmc.herokuapp.com/similarity", data=data);
+        String response = "98.78%";
+        simResult.setText(response);
+        String plagDesc = "Similarity Score:";
+        plagDescTV.setText(plagDesc);
     }
 }
