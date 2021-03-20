@@ -80,6 +80,9 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
         signInPW = findViewById(R.id.signinPassword);
         userProfileTV = findViewById(R.id.userType);
 
+        currentDate = Calendar.getInstance().getTime();
+        selectedDate = Calendar.getInstance();
+
         firebaseAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
@@ -187,11 +190,10 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
     }
 
     private void updateUI(FirebaseUser user, int userFlag) {
-        // Finish this
         if (userFlag == 2) {
             Map<String, Object> usersMap = new HashMap<>();
             usersMap.put("emailID", UIDEmailID);
-            usersMap.put("dateOfBirth", );
+            usersMap.put("dateOfBirth", DOB);
             usersMap.put("fullName", nameET.getText().toString().trim());
             usersMap.put("phoneNumber", phoneET.getText().toString().trim());
             usersMap.put("userType", checkUserType());
@@ -200,7 +202,11 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             db.collection("Users").document("User " + UIDEmailID).set(usersMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    // Finish this
+                    Intent intent = new Intent(LoginActivity.this, WelcomeScreenActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.putExtra("userType", checkUserType());
+                    startActivity(intent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -212,6 +218,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             Intent intent = new Intent(LoginActivity.this, WelcomeScreenActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.putExtra("userType", checkUserType());
             startActivity(intent);
         }
     }

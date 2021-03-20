@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_timetable"
+            android:icon="@drawable/timetable"
+            android:title="Time Table" />
+
+        <item
+            android:id="@+id/labs_classes"
+            android:icon="@drawable/labs_classes"
+            android:title="Labs/Classes" />
+
+        <item
+            android:id="@+id/report_cards"
+            android:icon="@drawable/report_card"
+            android:title="Report Cards" />
+
+    </group>
+
+    <item android:title="Miscellaneous">
+        <menu>
+            <item
+                android:id="@+id/fee_payment"
+                android:icon="@drawable/fee"
+                android:title="Fee Payment" />
+
+            <item
+                android:id="@+id/voatz"
+                android:icon="@drawable/Voatz"
+                android:title="Voatz" />
+
+            <item
+                android:id="@+id/help"
+                android:icon="@drawable/help"
+                android:title="Help" />
+        </menu>
+    </item>
+</menu>
