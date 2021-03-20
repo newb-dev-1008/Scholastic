@@ -31,7 +31,6 @@ import java.util.List;
 
 public class ReportCardFragment extends Fragment {
 
-    private TextView resultTV;
     private MaterialButton resultsBtn;
     private View root;
     private EditText emailET, passwordET;
@@ -47,6 +46,11 @@ public class ReportCardFragment extends Fragment {
         root = inflater.inflate(R.layout.report_card_frag, container, false);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        progressBar = root.findViewById(R.id.rcProgress);
+        emailET = root.findViewById(R.id.);
+        passwordET = root.findViewById(R.id.);
+        resultsBtn = root.findViewById(R.id.);
 
         resultsBtn.setOnClickListener(new View.OnClickListener() {
             @Override

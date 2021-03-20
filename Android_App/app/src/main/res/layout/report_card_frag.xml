@@ -29,7 +29,7 @@
         android:text="Results published!"/>
 
     <EditText
-        android:id="@+id/signupEmailEditText"
+        android:id="@+id/rcEmailEditText"
         android:layout_width="match_parent"
         android:inputType="textEmailAddress"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         android:layout_marginTop="45dp"/>
 
     <EditText
-        android:id="@+id/signinPassword"
+        android:id="@+id/rcPassword"
         android:layout_width="match_parent"
         android:inputType="textPassword"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/signinPassword"
+        app:layout_constraintTop_toBottomOf="@id/rcPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/rcSignIn"
