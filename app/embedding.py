@@ -13,6 +13,13 @@ def getSimilarity():
     vector1 = getSentenceEmbedding(document1, model)
     vector2 = getSentenceEmbedding(document2, model)
     similarity = cosine_similarity(vector1, vector2)
+
+    del model
+    del vector1
+    del vector2
+    del document1
+    del document2
+    
     return str(similarity), 200
 
 
