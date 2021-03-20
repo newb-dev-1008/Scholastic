@@ -22,10 +22,10 @@ def createFastTextModel(corpus, phrase=False):
     if phrase:
         train = phraseTransform(train)
 
-    model = FastText(min_count=1, vector_size=200)
+    model = FastText(min_count=1, vector_size=100)
     model.build_vocab(corpus_iterable=train)
     model.train(corpus_iterable=train,
-                total_examples=model.corpus_count, epochs=10)
+                total_examples=model.corpus_count, epochs=5)
     return model
 
 
@@ -36,10 +36,10 @@ def createWord2VecModel(corpus, phrase=False):
     if phrase:
         train = phraseTransform(train)
 
-    model = Word2Vec(min_count=1, vector_size=200)
+    model = Word2Vec(min_count=1, vector_size=100)
     model.build_vocab(corpus_iterable=train)
     model.train(corpus_iterable=train,
-                total_examples=model.corpus_count, epochs=10)
+                total_examples=model.corpus_count, epochs=5)
     return model
 
 
