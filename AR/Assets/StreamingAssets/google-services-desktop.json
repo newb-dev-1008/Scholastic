@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "437195693089",
+    "firebase_url": "https://smartar-3aea2.firebaseio.com",
+    "project_id": "smartar-3aea2",
+    "storage_bucket": "smartar-3aea2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437195693089:android:16ab51835f0371b3bc1760",
+        "android_client_info": {
+          "package_name": "com.vikings.smartar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437195693089-94mm8b9g2amlo7g6fn2p4s6ehvvk5iq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY2QwbVFfK4YLpVC1gxqH2RXyPGTThzdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437195693089-94mm8b9g2amlo7g6fn2p4s6ehvvk5iq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
