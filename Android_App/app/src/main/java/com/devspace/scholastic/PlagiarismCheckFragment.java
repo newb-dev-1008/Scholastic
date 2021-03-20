@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,8 +22,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Files;
+import java.util.Scanner;
 
 
 public class PlagiarismCheckFragment extends Fragment {
@@ -32,11 +36,12 @@ public class PlagiarismCheckFragment extends Fragment {
     private TextView plagDescTV, upload1TV, upload2TV, simResult;
     private ProgressBar simProg;
     private Uri fileUri;
-    private String filePath;
+    private String filePath, a, b;
     private FirebaseFirestore db;
     private FirebaseAuth firebaseAuth;
 
-    public static final int PICKFILE_RESULT_CODE = 1;
+    public static final int PICKFILE_RESULT_CODE_1 = 1;
+    public static final int PICKFILE_RESULT_CODE_2 = 2;
 
     @Nullable
     @Override
@@ -61,7 +66,7 @@ public class PlagiarismCheckFragment extends Fragment {
                 chooseFile.setType("*/*");
                 chooseFile = Intent.createChooser(chooseFile, "Choose a file");
                 simProg.setVisibility(View.VISIBLE);
-                startActivityForResult(chooseFile, PICKFILE_RESULT_CODE);
+                startActivityForResult(chooseFile, PICKFILE_RESULT_CODE_1);
             }
         });
 
@@ -72,7 +77,7 @@ public class PlagiarismCheckFragment extends Fragment {
                 chooseFile.setType("*/*");
                 chooseFile = Intent.createChooser(chooseFile, "Choose a file");
                 simProg.setVisibility(View.VISIBLE);
-                startActivityForResult(chooseFile, PICKFILE_RESULT_CODE);
+                startActivityForResult(chooseFile, PICKFILE_RESULT_CODE_2);
             }
         });
 
@@ -82,23 +87,40 @@ public class PlagiarismCheckFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
-            case PICKFILE_RESULT_CODE:
+            case PICKFILE_RESULT_CODE_1:
                 if (resultCode == -1) {
                     fileUri = data.getData();
                     filePath = fileUri.getPath();
                     File file = new File(filePath);
+                    a = fileToString(file);
+                    simProg.setVisibility(View.GONE);
+                }
+                break;
+            case PICKFILE_RESULT_CODE_2:
+                if (resultCode == -1) {
+                    fileUri = data.getData();
+                    filePath = fileUri.getPath();
+                    File file = new File(filePath);
+                    b = fileToString(file);
+                    simProg.setVisibility(View.GONE);
                 }
                 break;
         }
     }
 
-    private String fileToString(File file) throws Exception {
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        String st = "";
-        String i;
-        while ((i = br.readLine()) != null) {
-            st = new StringBuilder().append(st).append(i).toString();
+    private String fileToString(File file) {
+        StringBuilder str = new StringBuilder();
+        try {
+            Scanner myReader = new Scanner(file);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                str.append(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        return st;
+
+        return str.toString();
     }
 }
