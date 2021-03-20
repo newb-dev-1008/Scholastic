@@ -44,6 +44,10 @@
         "source": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\src\\main\\res\\menu\\home_drawer_menu.xml"
     },
     {
+        "merged": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable_home.xml.flat",
+        "source": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\src\\main\\res\\drawable\\home.xml"
+    },
+    {
         "merged": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_home_nav_drawer.xml.flat",
         "source": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\src\\main\\res\\layout\\home_nav_drawer.xml"
     },
