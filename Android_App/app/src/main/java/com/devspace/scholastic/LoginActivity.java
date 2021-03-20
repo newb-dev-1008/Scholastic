@@ -202,7 +202,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             db.collection("Users").document("User " + UIDEmailID).set(usersMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    Intent intent = new Intent(LoginActivity.this, WelcomeScreenActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, WelcomeNavbarActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("userType", checkUserType());
@@ -215,7 +215,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
                 }
             });
         } else {
-            Intent intent = new Intent(LoginActivity.this, WelcomeScreenActivity.class);
+            Intent intent = new Intent(LoginActivity.this, WelcomeNavbarActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("userType", checkUserType());
