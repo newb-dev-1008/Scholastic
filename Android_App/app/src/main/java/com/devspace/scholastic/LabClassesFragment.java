@@ -1,5 +1,7 @@
 package com.devspace.scholastic;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +36,7 @@ public class LabClassesFragment extends Fragment {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db;
-    private String grade;
+    private String grade, meetURL;
     private ArrayList<String> subjects;
 
     @Nullable
@@ -45,9 +47,21 @@ public class LabClassesFragment extends Fragment {
         arLab = root.findViewById(R.id.virtualLab);
         joinClass = root.findViewById(R.id.joinClass);
         classStatus = root.findViewById(R.id.classStatusTV);
+        meetURL = "https://meet.google.com/oxj-ajue-ywo";
 
         firebaseAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+
+        findPeriod();
+
+        joinClass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(meetURL));
+                startActivity(intent);
+            }
+        });
 
         return root;
     }
