@@ -29,3 +29,5 @@ com/devspace/scholastic/LoginActivity.java
  com.devspace.scholastic.LoginActivity$5
  com.devspace.scholastic.LoginActivity$6
  com.devspace.scholastic.LoginActivity$7
+ com.devspace.scholastic.LoginActivity$8
+ com.devspace.scholastic.LoginActivity$9
