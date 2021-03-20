@@ -25,6 +25,14 @@ public class PlagiarismCheckFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = super.onCreateView(inflater, container, savedInstanceState);
+        upload1 = root.findViewById(R.id.upload1btn);
+        upload2 = root.findViewById(R.id.upload2btn);
+        simCheckBtn = root.findViewById(R.id.simScoreBtn);
+        plagDescTV = root.findViewById(R.id.plagDescTV);
+        upload1TV = root.findViewById(R.id.upload1);
+        upload2TV = root.findViewById(R.id.upload2);
+        simResult = root.findViewById(R.id.simScoreTV);
+        simProg = root.findViewById(R.id.plagProgress);
 
         return root;
     }
