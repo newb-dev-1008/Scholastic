@@ -21,5 +21,5 @@ TBA
     * [Anshuman Singh](https://github.com/MysteriousAcadia)
     * [Kartikay Awasthi](https://github.com/barren-scp)
     * [Rohan Mathur](https://github.com/RohanMathur17)
-    * [Sayak Mallick]()
+    * [Sayak Mallick](https://github.com/sayak0809)
     * [Yash Umale](https://github.com/newb-dev-1008)
