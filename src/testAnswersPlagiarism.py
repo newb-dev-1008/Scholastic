@@ -25,5 +25,5 @@ headers = {
 'Content-Type': "multipart/form-data",
 }
 
-response = requests.post("http://127.0.0.1:5000/upload", files=files, headers=headers, data=data)
+response = requests.post("http://127.0.0.1:5000/upload", files=files, headers=headers)
 print(str(response.content))

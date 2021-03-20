@@ -3,12 +3,11 @@ from utils import *
 from flask import Flask, request
 
 app = Flask(__name__)
-# app.config['UPLOAD_FOLDER'] = 'uploads/'
+app.config['UPLOAD_FOLDER'] = 'uploads/'
 
 @app.route("/upload", methods=["POST"])
 def trainModel():
     print(request.files)
-    print(request.data)
     print(request.files.getlist("file[]"))
     return "hi"
 
