@@ -37,6 +37,10 @@
                 android:title="Voatz" />
 
             <item
+                android:id="@+id/plagiarism"
+                android:title="Plagiarism Checker" />
+
+            <item
                 android:id="@+id/help"
                 android:title="Help" />
         </menu>
