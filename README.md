@@ -26,6 +26,7 @@ In this post - covid era, the education sector has erupted, with a plethora of n
 - Docker
 - Heroku
 - AR Foundation with Blender & Unity
+- Blockchain Part - Solidity, Ethereum & React.js ( Along with Ganache & Truffle Suite)
 
 ## Challenges
 TBA
