@@ -18,7 +18,8 @@
         </activity>
 
         <activity android:name=".LoginActivity"/>
-        <activity android:name=".WelcomeScreenActivity"/>
+        <activity android:name=".WelcomeScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
 
