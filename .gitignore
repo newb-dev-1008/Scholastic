@@ -1,3 +1,4 @@
 scholastic/
 .vscode/
 __pycache__
+model/
