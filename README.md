@@ -17,7 +17,15 @@ success in the educational field in the future.
 In this post - covid era, the education sector has erupted, with a plethora of new opportunities. Scholastic provides a complete and comprehensive education portal for students as well as staff. The USP of the application are lab sessions simulated using Augmented Reality. Other features include usage of virtual assistants like Alexa to provide reminders, complete timetable and file integration, digital report card system, voatz for transparent voting and a plagiarism checker for assignments. Scholastic is a one - stop solution to all needs such as announcements and circulars from institution or a staff member, fee payment and even a chatbot for additional support. 
 
 ## Tech Stack
-TBA
+- Watson API
+- Python3
+- Gensim
+- NumPy
+- NLP
+- Android Studio with Java
+- Docker
+- Heroku
+- AR Foundation with Blender & Unity
 
 ## Challenges
 TBA
