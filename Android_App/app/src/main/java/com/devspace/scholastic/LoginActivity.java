@@ -26,9 +26,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private Spinner studentYear;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private int enterFlag = 1;
+    private int enterFlag = 1, userFlag = 1;
     private DatePickerDialog.OnDateSetListener dateSetListener; // Needs to be completed
 
     private String UIDEmailID;
@@ -114,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
                                     FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-                                    updateUI(currentUser);
+                                    updateUI(currentUser, userFlag);
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -139,15 +142,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signUp() {
-        // Finish the Firestore part
-
         String password = confPassET.getText().toString().trim();
         firebaseAuth.createUserWithEmailAndPassword(UIDEmailID, password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-                        updateUI(currentUser);
+                        userFlag = 2;
+                        updateUI(currentUser, userFlag);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -157,7 +159,41 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void updateUI(FirebaseUser user) {
+    private String checkUserType(){
+        int userTypeSelectedRadioID = userType.getCheckedRadioButtonId();
+        userTypeSelected = findViewById(userTypeSelectedRadioID);
+        String userTypeSelectedText = userTypeSelected.getText().toString();
+
+        return userTypeSelectedText;
+    }
+
+    private void updateUI(FirebaseUser user, int userFlag) {
         // Finish this
+        if (userFlag == 2) {
+            Map<String, Object> usersMap = new HashMap<>();
+            usersMap.put("emailID", UIDEmailID);
+            usersMap.put("dateOfBirth", );
+            usersMap.put("fullName", nameET.getText().toString().trim());
+            usersMap.put("phoneNumber", phoneET.getText().toString().trim());
+            usersMap.put("userType", );
+            usersMap.put("grade", );
+
+            db.collection("Users").document("User " + UIDEmailID).set(usersMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    // Finish this
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            Intent intent = new Intent(LoginActivity.this, WelcomeScreenActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
     }
 }
