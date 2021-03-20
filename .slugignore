@@ -1,0 +1,10 @@
+scholastic/
+.vscode/
+__pycache__
+model/
+src/
+READNE.md
+data/
+Android_App/
+Reportize*
+.gitignore
