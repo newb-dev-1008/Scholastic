@@ -63,6 +63,13 @@ public class LabClassesFragment extends Fragment {
             }
         });
 
+        arLab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finish this
+            }
+        });
+
         return root;
     }
 
