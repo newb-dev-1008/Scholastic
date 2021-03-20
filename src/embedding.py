@@ -12,35 +12,35 @@ def cosine_similarity(A, B):
 def phraseTransform(train):
     phrase_model = Phrases(train, min_count=3, threshold=0.5,
                            connector_words=ENGLISH_CONNECTOR_WORDS)
-    converted_sentences = [phrase_model(sent) for sent in train]
+    converted_sentences = [phrase_model[sent] for sent in train]
     return converted_sentences
 
 
-def createFastTextModel(corpus, phrase):
+def createFastTextModel(corpus, phrase=False):
     sentences = sent_tokenize(corpus)
     train = list(map(word_tokenize, sentences))
 
     if phrase:
         train = phraseTransform(train)
 
-    model = FastText(min_count=1, size=200)
-    model.build_vocab(sentences=train)
-    model.train(sentences=train,
-                total_examples=model.corpus_count, epochs=5)
+    model = FastText(min_count=1, vector_size=200)
+    model.build_vocab(corpus_iterable=train)
+    model.train(corpus_iterable=train,
+                total_examples=model.corpus_count, epochs=10)
     return model
 
 
-def createWord2VecModel(corpus, phrase):
+def createWord2VecModel(corpus, phrase=False):
     sentences = sent_tokenize(corpus)
     train = list(map(word_tokenize, sentences))
 
     if phrase:
         train = phraseTransform(train)
 
-    model = Word2Vec(min_count=1, size=200)
-    model.build_vocab(sentences=train)
-    model.train(sentences=train,
-                total_examples=model.corpus_count, epochs=5)
+    model = Word2Vec(min_count=1, vector_size=200)
+    model.build_vocab(corpus_iterable=train)
+    model.train(corpus_iterable=train,
+                total_examples=model.corpus_count, epochs=10)
     return model
 
 
