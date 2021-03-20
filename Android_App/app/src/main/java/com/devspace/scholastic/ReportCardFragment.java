@@ -2,6 +2,7 @@ package com.devspace.scholastic;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,8 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -32,10 +35,11 @@ public class ReportCardFragment extends Fragment {
     private MaterialButton resultsBtn;
     private View root;
     private EditText emailET, passwordET;
-    private String emailID, password;
+    private String emailID, password, rcLink;
     private ProgressBar progressBar;
     private int userFlag = 0;
     private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore db;
 
     @Nullable
     @Override
@@ -75,8 +79,21 @@ public class ReportCardFragment extends Fragment {
                     });
 
                 } else {
+                    db.collection("Report Cards").document("Grade 10").get()
+                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    rcLink = documentSnapshot.get(firebaseAuth.getCurrentUser().getEmail()).toString();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-
+                    intent.setData(Uri.parse(rcLink));
+                    startActivity(intent);
                 }
             }
         });
