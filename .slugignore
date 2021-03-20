@@ -6,5 +6,5 @@ src/
 READNE.md
 data/
 Android_App/
-Reportize*
+Reportize*/
 .gitignore
