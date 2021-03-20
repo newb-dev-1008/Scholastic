@@ -7,8 +7,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Report Card"
-        android:id="@+id/reportCardTV"
+        android:text="Labs/ Classes"
+        android:id="@+id/labsClassesTV"
         android:fontFamily="sans-serif-black"
         android:textSize="36sp"
         android:textColor="@color/black"
@@ -17,27 +17,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="70dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/reportStatus"
-        app:layout_constraintTop_toBottomOf="@id/reportCardTV"
+        app:layout_constraintTop_toBottomOf="@id/labsClassesTV"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="60dp"
-        android:textSize="22sp"
-        android:text="Not published."/>
+        android:id="@+id/virtualLab"
+        android:layout_marginTop="50dp"
+        android:text="Launch Virtual Labs"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"/>
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/reportStatus"
+        app:layout_constraintTop_toBottomOf="@id/virtualLab"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        android:text="View Results"
+        android:text="Join the online class"
         android:layout_marginStart="25dp"
-        android:visibility="gone"
         android:layout_marginEnd="25dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
