@@ -2,6 +2,7 @@ package com.devspace.scholastic;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +12,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.nio.file.Files;
 
 
 public class PlagiarismCheckFragment extends Fragment {
@@ -53,6 +60,18 @@ public class PlagiarismCheckFragment extends Fragment {
                 Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
                 chooseFile.setType("*/*");
                 chooseFile = Intent.createChooser(chooseFile, "Choose a file");
+                simProg.setVisibility(View.VISIBLE);
+                startActivityForResult(chooseFile, PICKFILE_RESULT_CODE);
+            }
+        });
+
+        upload2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
+                chooseFile.setType("*/*");
+                chooseFile = Intent.createChooser(chooseFile, "Choose a file");
+                simProg.setVisibility(View.VISIBLE);
                 startActivityForResult(chooseFile, PICKFILE_RESULT_CODE);
             }
         });
@@ -67,8 +86,19 @@ public class PlagiarismCheckFragment extends Fragment {
                 if (resultCode == -1) {
                     fileUri = data.getData();
                     filePath = fileUri.getPath();
+                    File file = new File(filePath);
                 }
                 break;
         }
+    }
+
+    private String fileToString(File file) throws Exception {
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String st = "";
+        String i;
+        while ((i = br.readLine()) != null) {
+            st = new StringBuilder().append(st).append(i).toString();
+        }
+        return st;
     }
 }
