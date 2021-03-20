@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Labs/ Classes"
+        android:text="Virtual Labs"
         android:id="@+id/labsClassesTV"
         android:fontFamily="sans-serif-black"
         android:textSize="36sp"
@@ -29,13 +29,38 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"/>
 
-    <com.google.android.material.button.MaterialButton
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="3dp"
         app:layout_constraintTop_toBottomOf="@id/virtualLab"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/grey"
+        android:layout_marginTop="50dp"
+        android:id="@+id/hr1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Join your class"
+        android:id="@+id/classesTV"
+        android:fontFamily="sans-serif-black"
+        android:textSize="36sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/hr1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/classesTV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"
         android:text="Join the online class"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"/>
