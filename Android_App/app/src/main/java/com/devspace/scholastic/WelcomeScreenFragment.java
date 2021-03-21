@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -19,6 +20,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 public class WelcomeScreenFragment extends Fragment {
 
@@ -29,6 +32,9 @@ public class WelcomeScreenFragment extends Fragment {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db;
+
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Nullable
     @Override
@@ -55,6 +61,17 @@ public class WelcomeScreenFragment extends Fragment {
                 Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        ArrayList<Deadlines> deadlines = new ArrayList<>();
+        deadlines.add(new Deadlines("Fee Payment", "Rs. 5000", "Due on 25th of March"));
+        deadlines.add(new Deadlines("Submission", "Maths Record", "Due tomorrow, 1:00 AM"));
+        deadlinesRV.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(getContext());
+        mAdapter = new WelcomeAdapter(deadlines);
+        deadlinesRV.setLayoutManager(mLayoutManager);
+        deadlinesRV.setAdapter(mAdapter);
+
+
 
         return root;
     }
