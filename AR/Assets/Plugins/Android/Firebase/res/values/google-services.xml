@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id" xmlns:tools="http://schemas.android.com/tools">
+  <string name="firebase_database_url" translatable="false">https://smartar-3aea2.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">437195693089</string>
+  <string name="google_storage_bucket" translatable="false">smartar-3aea2.appspot.com</string>
+  <string name="project_id" translatable="false">smartar-3aea2</string>
+  <string name="google_api_key" translatable="false">AIzaSyBY2QwbVFfK4YLpVC1gxqH2RXyPGTThzdA</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBY2QwbVFfK4YLpVC1gxqH2RXyPGTThzdA</string>
+  <string name="google_app_id" translatable="false">1:437195693089:android:16ab51835f0371b3bc1760</string>
+  <string name="default_web_client_id" translatable="false">437195693089-94mm8b9g2amlo7g6fn2p4s6ehvvk5iq8.apps.googleusercontent.com</string>
+</resources>
