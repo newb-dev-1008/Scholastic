@@ -40,11 +40,18 @@ The bot was made using Google Assistant via the Actions Console. Various pre-pro
 Custom intents were set referring to set time periods to which a question referred to. On an input from the user, the assistant determines the intent into sections like “today”, “tomorrow”, “next”, “fees”, etc.
 Respective data is obtained from the database and displayed to the user in a basic manner.
 
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Assistant-1.png"><img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Assistant-1.png">
+
 ## Simulation of Labs Using AR
 Using Blender, Unity &  ARFoundation for creating simulated labs for different subjects
 
 #### How It Was Used 
 We used blender to create 3d models of atoms and electrical instruments. Used Unity and C# to write the logic between combination of electrical components and molecules and AR foundation to instantiate it in AR.
+
+
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/AR-1.png"> <img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/AR-2.png"><img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/AR-3.png">
+
+
 
 ## Plagiarism Checker
 Using Python with NLP & Embedding Models, we created a method to check if 2 submitted assignments ( done by students ) are similiar or not & to what extent
@@ -56,6 +63,10 @@ Using Python with NLP & Embedding Models, we created a method to check if 2 subm
 - Additionally to increase accuracy, we have provided an option to allow the user to upload a PDF of the textbook for a course, to train embeddings on that to build better and specific domain knowledge which will outperform general, non-specific baseline word embeddings.
 - The plagiarism checker has been hosted as a flask app and returns results via a simple API call. The API receives the documents, and optionally, the PDF of the book as arguments via a POST request
 
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Plagiarism-1.png">
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Plagiarism-2.png">
+
+
 ## Blockchain Based Storage App
 A Ethereum based storage app built on Solidity & react.js for Storing Digitized Report Cards
 
@@ -66,6 +77,9 @@ A Ethereum based storage app built on Solidity & react.js for Storing Digitized 
 - One more dependency that was used was Metamask ( Browser extension for ethereum wallets that connects with ganache)
 - Once a report card is uploaded , a unique hash is created for it through which he /she can send it to parents.
 
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-1.png">
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-2.png">
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-3.png">
 
 ## Future enhancements
 TBA
@@ -81,3 +95,6 @@ TBA
     * [Rohan Mathur](https://github.com/RohanMathur17)
     * [Sayak Mallick](https://github.com/sayak0809)
     * [Yash Umale](https://github.com/newb-dev-1008)
+
+
+
