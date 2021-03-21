@@ -63,7 +63,7 @@ Using Python with NLP & Embedding Models, we created a method to check if 2 subm
 - Additionally to increase accuracy, we have provided an option to allow the user to upload a PDF of the textbook for a course, to train embeddings on that to build better and specific domain knowledge which will outperform general, non-specific baseline word embeddings.
 - The plagiarism checker has been hosted as a flask app and returns results via a simple API call. The API receives the documents, and optionally, the PDF of the book as arguments via a POST request
 
-<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Plagiarism-1.png">
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Plagiarism-1.png" width = "400" height="400">
 <img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Plagiarism-2.png">
 
 
@@ -77,9 +77,9 @@ A Ethereum based storage app built on Solidity & react.js for Storing Digitized 
 - One more dependency that was used was Metamask ( Browser extension for ethereum wallets that connects with ganache)
 - Once a report card is uploaded , a unique hash is created for it through which he /she can send it to parents.
 
-<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-1.png">
-<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-2.png">
-<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-3.png">
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-1.png" >
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-2.png" width = "350" height="600">
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-3.png" >
 
 
 ## Android App
@@ -95,6 +95,13 @@ We used Heroku to deploy our model for plagiarism check, while blockchain transa
 Components and external libraries used: 
 - RecyclerViews, ViewHolders, CardViews, Adapters, Fragments
 - Firebase Authentication (for sign-in and sign-up), Firestore, Material Components
+
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/App-1.png"  width="350" height="700"><img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/App-2.png" width="350" height="700">
+
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/App-3.png"  width="350" height="700"><img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/App-4.png" width="350" height="700">
+
+<img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/App-5.png"  width="350" height="700"><img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/App-6.png" width="350" height="700">
+
 
 
 ## Future enhancements
