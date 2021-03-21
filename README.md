@@ -1,5 +1,5 @@
 # Scholastic
-A one-stop campus management application, encompassing AR, NLP and Machine Learning to enhance vanilla online learning.
+A one-stop campus management application, encompassing AR, NLP and Blockchain to enhance vanilla online learning.
 
 # Problem Statement
 
