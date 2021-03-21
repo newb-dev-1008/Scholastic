@@ -81,8 +81,27 @@ A Ethereum based storage app built on Solidity & react.js for Storing Digitized 
 <img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-2.png">
 <img src = "https://github.com/newb-dev-1008/Scholastic/blob/main/data/readme%20images/Blockchain-3.png">
 
+
+## Android App
+The Android app uses Material Design, AndroidX components, Java and XML for development. At its core, the backend is mainly provided by services from Firebase, namely:
+- Firebase Authentication
+- Firebase Storage
+- Cloud Firestore
+- Cloud Run
+
+#### How it Was Used
+We used Heroku to deploy our model for plagiarism check, while blockchain transactions created unique links per report card, which were subsequently stored within HashMaps in Cloud Firestore.
+
+Components and external libraries used: 
+- RecyclerViews, ViewHolders, CardViews, Adapters, Fragments
+- Firebase Authentication (for sign-in and sign-up), Firestore, Material Components
+
+
 ## Future enhancements
-TBA
+- Proctoring can be added as a feature, which could not be done due to lack of time and load of OpenCV models
+- Chatbot can be made more personalized for staff and students alike
+- Moving more than just report card distribution to blockchain
+
 
 ## Team Details
 
