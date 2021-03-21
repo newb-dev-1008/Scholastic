@@ -38,6 +38,9 @@ public class WelcomeScreenFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
 
         userName = root.findViewById(R.id.homeNameTV);
+        deadlinesRV = root.findViewById(R.id.homeDeadlinesRecycler);
+        eventsRV = root.findViewById(R.id.homeEventsRecycler);
+        announcementsRV = root.findViewById(R.id.homeAnnRecycler);
 
         db.collection("Users").document(firebaseAuth.getCurrentUser().getEmail()).get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
