@@ -25,8 +25,7 @@ public class WelcomeNavbarActivity extends AppCompatActivity implements Navigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_nav_drawer);
 
-        Intent intent = getIntent();
-        userType = intent.getStringExtra("userType");
+        userType = getIntent().getStringExtra("userTypeUnique");
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new WelcomeScreenFragment()).commit();
@@ -38,10 +37,14 @@ public class WelcomeNavbarActivity extends AppCompatActivity implements Navigati
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        if (userType.equals("Student")) {
+        /*
+        try {
             Menu nav_menu = navigationView.getMenu();
             nav_menu.findItem(R.id.plagiarism).setVisible(false);
+        } catch (NullPointerException e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+        */
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_closed);
@@ -83,6 +86,7 @@ public class WelcomeNavbarActivity extends AppCompatActivity implements Navigati
             case R.id.plagiarism:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new PlagiarismCheckFragment()).commit();
+                break;
             default:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new WelcomeScreenFragment()).commit();

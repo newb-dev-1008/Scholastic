@@ -63,7 +63,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         });
 
         Intent intent = new Intent(SplashScreenActivity.this, WelcomeNavbarActivity.class);
-        intent.putExtra("userType", userType);
+        intent.putExtra("userTypeUnique", userType);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

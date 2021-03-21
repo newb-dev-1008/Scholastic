@@ -95,6 +95,7 @@ public class ReportCardFragment extends Fragment {
                             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
+                    rcLink = "https://bafybeihyuyvitbirc3usojlaqpzghqd4zsmllmnwnasostq4gairx26zpa.ipfs.infura-ipfs.io/";
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse(rcLink));
                     startActivity(intent);

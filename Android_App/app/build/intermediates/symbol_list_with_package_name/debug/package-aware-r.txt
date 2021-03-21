@@ -1845,6 +1845,7 @@ id chip3
 id chip_group
 id chronometer
 id circle_center
+id classStatusTV
 id classesTV
 id clear_text
 id clip_horizontal
@@ -1954,6 +1955,8 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id joinClass
+id joinClassBtn
 id jumpToEnd
 id jumpToStart
 id labelGroup
@@ -2053,6 +2056,10 @@ id peekHeight
 id percent
 id phoneNumberEditText
 id pin
+id plagDescTV
+id plagProgress
+id plagTV
+id plagiarism
 id position
 id postLayout
 id professor
@@ -2060,6 +2067,10 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id rcEmailEditText
+id rcPassword
+id rcProgress
+id rcSignIn
 id rectangles
 id reportCardTV
 id reportStatus
@@ -2106,6 +2117,8 @@ id signupEnterEmailButton
 id signupNameEditText
 id signupPasswordEditText
 id signupTextView
+id simScoreBtn
+id simScoreTV
 id sin
 id skipCollapsed
 id slide
@@ -2136,6 +2149,7 @@ id stretch
 id student
 id studentSemTV
 id studentYearSpinner
+id subjectTV
 id submenuarrow
 id submit_area
 id tabMode
@@ -2168,6 +2182,8 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id time
+id timeTV
+id timetableRV
 id timetableTV
 id title
 id titleDividerNoCustom
@@ -2189,6 +2205,10 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id upload1
+id upload1btn
+id upload2
+id upload2btn
 id useLogo
 id userType
 id userTypeRadioGroup
@@ -2196,6 +2216,9 @@ id view_offset_helper
 id virtualLab
 id visible
 id voatz
+id welcomeBody
+id welcomeSubtitle
+id welcomeTitle
 id wide
 id withText
 id withinBounds
@@ -2341,6 +2364,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout plagiarism_checker
 layout report_card_frag
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
@@ -2362,6 +2386,8 @@ layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
 layout timetable_frag
+layout tt_card
+layout welcome_card
 menu home_drawer_menu
 mipmap ic_launcher
 mipmap ic_launcher_round

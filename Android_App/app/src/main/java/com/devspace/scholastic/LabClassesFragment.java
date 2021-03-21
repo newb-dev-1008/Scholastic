@@ -45,9 +45,16 @@ public class LabClassesFragment extends Fragment {
         root = inflater.inflate(R.layout.labs_classes, container, false);
 
         arLab = root.findViewById(R.id.virtualLab);
-        joinClass = root.findViewById(R.id.joinClass);
+        joinClass = root.findViewById(R.id.joinClassBtn);
         classStatus = root.findViewById(R.id.classStatusTV);
         meetURL = "https://meet.google.com/oxj-ajue-ywo";
+        subjects = new ArrayList<>();
+        subjects = new ArrayList<>();
+        subjects.add("Physics");
+        subjects.add("Maths");
+        subjects.add("Chemistry");
+        subjects.add("Physics Lab");
+        subjects.add("Computers");
 
         firebaseAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -95,12 +102,15 @@ public class LabClassesFragment extends Fragment {
             }
         });
 
-        db.collection("Classes").document(grade).get()
+        db.collection("Classes").document("10th Grade").get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        /*
                         Map<String, Object> timeTableMap = (Map<String, Object>) documentSnapshot.get("timeTable");
                         subjects = (ArrayList<String>) timeTableMap.get(1);
+                         */
+
 
                         String statusText = localTime + "\n" + subjects.get(i);
                         classStatus.setText(statusText);

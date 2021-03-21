@@ -48,7 +48,7 @@ public class WelcomeScreenFragment extends Fragment {
         eventsRV = root.findViewById(R.id.homeEventsRecycler);
         announcementsRV = root.findViewById(R.id.homeAnnRecycler);
 
-        db.collection("Users").document(firebaseAuth.getCurrentUser().getEmail()).get()
+        db.collection("Users").document("User " + firebaseAuth.getCurrentUser().getEmail()).get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {

@@ -48,7 +48,7 @@ public class PlagiarismCheckFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        root = super.onCreateView(inflater, container, savedInstanceState);
+        root = inflater.inflate(R.layout.plagiarism_checker, container, false);
         upload1 = root.findViewById(R.id.upload1btn);
         upload2 = root.findViewById(R.id.upload2btn);
         simCheckBtn = root.findViewById(R.id.simScoreBtn);
@@ -86,6 +86,7 @@ public class PlagiarismCheckFragment extends Fragment {
         simCheckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                simCheckBtn.setVisibility(View.GONE);
                 checkSimilarity();
             }
         });
@@ -132,7 +133,7 @@ public class PlagiarismCheckFragment extends Fragment {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Uploaded file.", Toast.LENGTH_SHORT).show();
         }
 
         return str.toString();

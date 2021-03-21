@@ -99,7 +99,6 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
                     imm.hideSoftInputFromWindow(enterMail.getWindowToken(), 0);
                     String EmailID = emailET.getText().toString().trim();
                     UIDEmailID = EmailID;
-                    Toast.makeText(LoginActivity.this, "This gets executed 1.", Toast.LENGTH_SHORT).show();
                     if (isEmailValid(UIDEmailID)) {
                         firebaseAuth.fetchSignInMethodsForEmail(UIDEmailID).addOnSuccessListener(new OnSuccessListener<SignInMethodQueryResult>() {
                             @Override
@@ -137,7 +136,6 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
                     }
                 } else {
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(LoginActivity.this, "Signin entered.", Toast.LENGTH_SHORT).show();
                     String password = signInPW.getText().toString().trim();
                     firebaseAuth.signInWithEmailAndPassword(UIDEmailID, password)
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -184,7 +182,6 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
                     public void onSuccess(AuthResult authResult) {
                         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
                         userFlag = 2;
-                        Toast.makeText(LoginActivity.this, "SignUp gets executed.", Toast.LENGTH_SHORT).show();
                         updateUI(currentUser, userFlag);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -213,16 +210,13 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             usersMap.put("userType", checkUserType());
             usersMap.put("grade", studentYear.getSelectedItem());
 
-            Toast.makeText(this, "updateUI 1 gets executed.", Toast.LENGTH_SHORT).show();
-
             db.collection("Users").document("User " + UIDEmailID).set(usersMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    Toast.makeText(LoginActivity.this, "updateUI Intent launching.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, WelcomeNavbarActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    intent.putExtra("userType", checkUserType());
+                    intent.putExtra("userTypeUnique", checkUserType());
                     startActivity(intent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -246,9 +240,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
                 }
             });
             Intent intent = new Intent(LoginActivity.this, WelcomeNavbarActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            intent.putExtra("userType", userTypeString);
+            intent.putExtra("userTypeUnique", userTypeString);
             startActivity(intent);
         }
     }

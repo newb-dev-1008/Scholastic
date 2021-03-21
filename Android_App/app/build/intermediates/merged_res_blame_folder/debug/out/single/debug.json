@@ -92,6 +92,10 @@
         "source": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_tt_card.xml.flat",
+        "source": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\src\\main\\res\\layout\\tt_card.xml"
+    },
+    {
         "merged": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
@@ -100,8 +104,16 @@
         "source": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
+        "merged": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_welcome_card.xml.flat",
+        "source": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\src\\main\\res\\layout\\welcome_card.xml"
+    },
+    {
         "merged": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_plagiarism_checker.xml.flat",
+        "source": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\src\\main\\res\\layout\\plagiarism_checker.xml"
     },
     {
         "merged": "C:\\Users\\Yash Umale\\Documents\\Devspace\\Scholastic\\Android_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_report_card_frag.xml.flat",

@@ -42,6 +42,13 @@ public class TimeTableFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.timetable_frag, container, false);
         ArrayList<TimeTable> timeTable = new ArrayList<>();
+        subjects = new ArrayList<>();
+        subjects.add("Physics");
+        subjects.add("Maths");
+        subjects.add("Chemistry");
+        subjects.add("Physics Lab");
+        subjects.add("Computers");
+        Toast.makeText(getActivity(), subjects.toString(), Toast.LENGTH_SHORT).show();
         // Map<String, Object> dbTimeTable = new HashMap<>();
 
         timetableRV = root.findViewById(R.id.timetableRV);
@@ -66,12 +73,24 @@ public class TimeTableFragment extends Fragment {
             }
         });
 
-        db.collection("Classes").document(grade).get()
+        db.collection("Classes").document("10th Grade").get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        Map<String, Object> timeTableMap = (Map<String, Object>) documentSnapshot.get("timeTable");
-                        subjects = (ArrayList<String>) timeTableMap.get(1);
+                        Toast.makeText(getActivity(), "Displaying Timetable", Toast.LENGTH_SHORT).show();
+                        /*
+                        try {
+                            Map<String, Object> timeTableMap = (Map<String, Object>) documentSnapshot.get("timeTable");
+                            subjects = (ArrayList<String>) timeTableMap.get(1);
+                            Toast.makeText(getActivity(), subjects.toString(), Toast.LENGTH_SHORT).show();
+                        } catch (NullPointerException e) {
+                            subjects.add("Physics");
+                            subjects.add("Maths");
+                            subjects.add("Chemistry");
+                            subjects.add("Physics Lab");
+                            subjects.add("Computers");
+                        }
+                        */
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
