@@ -71,7 +71,13 @@ public class WelcomeScreenFragment extends Fragment {
         deadlinesRV.setLayoutManager(mLayoutManager);
         deadlinesRV.setAdapter(mAdapter);
 
-
+        ArrayList<Deadlines> events = new ArrayList<>();
+        events.add(new Deadlines("Next Period", "Physics Laboratory", ""));
+        eventsRV.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(getContext());
+        mAdapter = new WelcomeAdapter(events);
+        eventsRV.setLayoutManager(mLayoutManager);
+        eventsRV.setAdapter(mAdapter);
 
         return root;
     }
